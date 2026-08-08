@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="سورة يس">
+<meta name="theme-color" content="#0f5132">
+<title>سورة يس</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #f7f3e8;
+  color: #17251d;
+  font-family: -apple-system, BlinkMacSystemFont, "Geeza Pro", "Traditional Arabic", Arial, sans-serif;
+  padding-bottom: 35px;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #0f5132;
+  color: white;
+  text-align: center;
+  padding: calc(14px + env(safe-area-inset-top)) 12px 14px;
+}
+h1 { margin: 0; font-size: 26px; }
+.subtitle { font-size: 14px; margin-top: 4px; opacity: .9; }
+main {
+  width: min(760px, calc(100% - 22px));
+  margin: 16px auto;
+}
+.info, .verses {
+  background: #fffdf7;
+  border: 1px solid #ddd3bc;
+  border-radius: 18px;
+  padding: 18px;
+}
+.info {
+  text-align: center;
+  line-height: 1.8;
+}
+.basmala {
+  color: #0f5132;
+  font-size: 31px;
+  font-weight: 700;
+  margin: 9px 0;
+}
+.verses {
+  margin-top: 14px;
+  font-size: 30px;
+  line-height: 2.15;
+  text-align: justify;
+}
+.ayah { display: inline; }
+.num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 7px;
+  margin: 0 4px;
+  border: 1.5px solid #ad9254;
+  border-radius: 50%;
+  color: #76591b;
+  font-size: .55em;
+  vertical-align: middle;
+}
+.mubeen-check {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.mubeen-label {
+  cursor: pointer;
+  border-radius: 7px;
+  padding: 0 2px;
+  -webkit-tap-highlight-color: transparent;
+  animation: mubeen-flash 1.1s infinite;
+}
+@keyframes mubeen-flash {
+  0%, 45% {
+    color: inherit;
+    background: transparent;
+  }
+  50%, 95% {
+    color: #d00000;
+    background: rgba(208,0,0,.12);
+    font-weight: 700;
+  }
+  100% {
+    color: inherit;
+    background: transparent;
+  }
+}
+.mubeen-check:checked + .mubeen-label {
+  color: #d00000;
+  background: rgba(208,0,0,.08);
+  font-weight: 700;
+  animation: none;
+}
+.note {
+  text-align: center;
+  color: #617066;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 18px 12px;
+}
+
+.instructions {
+  background: #fffdf7;
+  border: 1px solid #ddd3bc;
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 14px;
+  line-height: 1.9;
+}
+.instructions h2 {
+  margin: 0 0 12px;
+  color: #0f5132;
+  text-align: center;
+  font-size: 24px;
+}
+.instructions h3 {
+  margin: 16px 0 6px;
+  color: #0f5132;
+  font-size: 19px;
+}
+.instructions ul {
+  margin: 4px 0 0;
+  padding-right: 22px;
+}
+.notice {
+  margin-top: 17px;
+  background: #f3eee0;
+  border-right: 4px solid #ad9254;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 15px;
+}
+.start-link {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #0f5132;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+}
+.start-link:active {
+  transform: scale(.99);
+}
+#reading-start {
+  scroll-margin-top: 105px;
+}
+
+
+.progress-box {
+  position: sticky;
+  top: 105px;
+  z-index: 4;
+  margin: 12px 0;
+  padding: 10px 14px;
+  background: #fff8df;
+  border: 1px solid #d9c27b;
+  border-radius: 13px;
+  color: #574312;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+}
+.completion-message {
+  display: none;
+  margin: 14px 0;
+  padding: 15px;
+  border-radius: 14px;
+  background: #e8f5ec;
+  border: 1px solid #98c7a7;
+  color: #174b2d;
+  text-align: center;
+  line-height: 1.8;
+  font-weight: 700;
+}
+.dedication {
+  margin-top: 18px;
+  background: #fffdf7;
+  border: 1px solid #d8c79c;
+  border-radius: 18px;
+  padding: 21px 18px;
+  text-align: center;
+  line-height: 2;
+}
+.dedication h2 {
+  margin: 0 0 10px;
+  color: #0f5132;
+  font-size: 24px;
+}
+.dedication .names {
+  margin: 12px 0;
+  font-weight: 700;
+}
+.dedication .dua {
+  margin-top: 12px;
+}
+.quran-dua {
+  margin-top: 15px;
+  padding-top: 13px;
+  border-top: 1px solid #ddd3bc;
+  color: #0f5132;
+  font-size: 21px;
+  font-weight: 700;
+}
+.signature {
+  margin-top: 16px;
+  color: #657068;
+  font-size: 13px;
+}
+body.dark .instructions,
+body.dark .dedication {
+  background: #17231b;
+  border-color: #34463a;
+}
+body.dark .instructions h2,
+body.dark .instructions h3,
+body.dark .dedication h2,
+body.dark .quran-dua {
+  color: #8ed9aa;
+}
+body.dark .notice {
+  background: #222d25;
+}
+body.dark .progress-box {
+  background: #2b2a20;
+  border-color: #746a42;
+  color: #f5e8ad;
+}
+body.dark .completion-message {
+  background: #183522;
+  border-color: #477c57;
+  color: #dff5e5;
+}
+
+</style>
+</head>
+<body>
+<header>
+  <h1>سورة يس – مبين</h1>
+  <div class="subtitle">تعمل بدون إنترنت وبدون تحميل</div>
+</header>
+
+<main>
+  <section class="instructions">
+    <h2>🌿 طريقة القراءة</h2>
+
+    <h3>١. الاستعداد</h3>
+    <ul>
+      <li>البدء بوضوء وخشوع.</li>
+      <li>استحضار نية خالصة لله تعالى.</li>
+      <li>الدعاء بقضاء الحاجة، مع اليقين بأن الله وحده هو مجيب الدعاء.</li>
+    </ul>
+
+    <h3>٢. القراءة الأولى</h3>
+    <ul>
+      <li>ابدأ بقراءة سورة يس.</li>
+      <li>عند الوصول إلى كل موضع فيه كلمة «مبين» — وهي سبعة مواضع في السورة — توقف قليلًا وادعُ الله بما تشاء من خيري الدنيا والآخرة.</li>
+      <li>بعد الدعاء اضغط على كلمة «مبين» لتصبح حمراء ثابتة، ثم أكمل القراءة.</li>
+    </ul>
+
+    <h3>٣. القراءة الثانية</h3>
+    <ul>
+      <li>بعد الانتهاء، عُد إلى أول السورة واقرأها مرة أخرى.</li>
+      <li>عند كل كلمة «مبين» ادعُ الله بقضاء حاجتك.</li>
+      <li>عند آخر كلمة «مبين» ادعُ بما تشاء، ثم أكمل السورة إلى آخرها.</li>
+    </ul>
+
+    <div class="notice">
+      <strong>تنبيه:</strong>
+      هذه طريقة يتبعها بعض المسلمين رجاء الدعاء، وليست سنة ثابتة عن النبي ﷺ، فلا تُنسب إليه على أنها سنة.
+    </div>
+
+    <a class="start-link" href="#reading-start">📖 ابدأ القراءة</a>
+  </section>
+
+  <section class="info" id="reading-start">
+    <div>سورة مكية • ٨٣ آية</div>
+    <div class="basmala">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div>كلمة «مبين» ستومض بالأحمر لتذكيرك، واضغط عليها لتصبح حمراء ثابتة.</div>
+  </section>
+
+  <div class="progress-box" id="progressBox">تم تحديد ٠ من ٧ مواضع لكلمة «مبين»</div>
+  <div class="completion-message" id="completionMessage">
+    🌿 تم تحديد المواضع السبعة.<br>
+    نسأل الله أن يتقبل دعاءكم وييسر لكم الخير.
+  </div>
+  <section class="verses">
+    <span class="ayah">يسٓ <span class="num">١</span></span> <span class="ayah">وَٱلۡقُرۡءَانِ ٱلۡحَكِيمِ <span class="num">٢</span></span> <span class="ayah">إِنَّكَ لَمِنَ ٱلۡمُرۡسَلِينَ <span class="num">٣</span></span> <span class="ayah">عَلَىٰ صِرَٰطٖ مُّسۡتَقِيمٖ <span class="num">٤</span></span> <span class="ayah">تَنزِيلَ ٱلۡعَزِيزِ ٱلرَّحِيمِ <span class="num">٥</span></span> <span class="ayah">لِتُنذِرَ قَوۡمٗا مَّآ أُنذِرَ ءَابَآؤُهُمۡ فَهُمۡ غَٰفِلُونَ <span class="num">٦</span></span> <span class="ayah">لَقَدۡ حَقَّ ٱلۡقَوۡلُ عَلَىٰٓ أَكۡثَرِهِمۡ فَهُمۡ لَا يُؤۡمِنُونَ <span class="num">٧</span></span> <span class="ayah">إِنَّا جَعَلۡنَا فِيٓ أَعۡنَٰقِهِمۡ أَغۡلَٰلٗا فَهِيَ إِلَى ٱلۡأَذۡقَانِ فَهُم مُّقۡمَحُونَ <span class="num">٨</span></span> <span class="ayah">وَجَعَلۡنَا مِنۢ بَيۡنِ أَيۡدِيهِمۡ سَدّٗا وَمِنۡ خَلۡفِهِمۡ سَدّٗا فَأَغۡشَيۡنَٰهُمۡ فَهُمۡ لَا يُبۡصِرُونَ <span class="num">٩</span></span> <span class="ayah">وَسَوَآءٌ عَلَيۡهِمۡ ءَأَنذَرۡتَهُمۡ أَمۡ لَمۡ تُنذِرۡهُمۡ لَا يُؤۡمِنُونَ <span class="num">١٠</span></span> <span class="ayah">إِنَّمَا تُنذِرُ مَنِ ٱتَّبَعَ ٱلذِّكۡرَ وَخَشِيَ ٱلرَّحۡمَٰنَ بِٱلۡغَيۡبِۖ فَبَشِّرۡهُ بِمَغۡفِرَةٖ وَأَجۡرٖ كَرِيمٍ <span class="num">١١</span></span> <span class="ayah">إِنَّا نَحۡنُ نُحۡيِ ٱلۡمَوۡتَىٰ وَنَكۡتُبُ مَا قَدَّمُواْ وَءَاثَٰرَهُمۡۚ وَكُلَّ شَيۡءٍ أَحۡصَيۡنَٰهُ فِيٓ إِمَامٖ <input class="mubeen-check" type="checkbox" id="mubeen-1"><label class="mubeen-label" for="mubeen-1">مُّبِينٖ</label> <span class="num">١٢</span></span> <span class="ayah">وَٱضۡرِبۡ لَهُم مَّثَلًا أَصۡحَٰبَ ٱلۡقَرۡيَةِ إِذۡ جَآءَهَا ٱلۡمُرۡسَلُونَ <span class="num">١٣</span></span> <span class="ayah">إِذۡ أَرۡسَلۡنَآ إِلَيۡهِمُ ٱثۡنَيۡنِ فَكَذَّبُوهُمَا فَعَزَّزۡنَا بِثَالِثٖ فَقَالُوٓاْ إِنَّآ إِلَيۡكُم مُّرۡسَلُونَ <span class="num">١٤</span></span> <span class="ayah">قَالُواْ مَآ أَنتُمۡ إِلَّا بَشَرٞ مِّثۡلُنَا وَمَآ أَنزَلَ ٱلرَّحۡمَٰنُ مِن شَيۡءٍ إِنۡ أَنتُمۡ إِلَّا تَكۡذِبُونَ <span class="num">١٥</span></span> <span class="ayah">قَالُواْ رَبُّنَا يَعۡلَمُ إِنَّآ إِلَيۡكُمۡ لَمُرۡسَلُونَ <span class="num">١٦</span></span> <span class="ayah">وَمَا عَلَيۡنَآ إِلَّا ٱلۡبَلَٰغُ <input class="mubeen-check" type="checkbox" id="mubeen-2"><label class="mubeen-label" for="mubeen-2">ٱلۡمُبِينُ</label> <span class="num">١٧</span></span> <span class="ayah">قَالُوٓاْ إِنَّا تَطَيَّرۡنَا بِكُمۡۖ لَئِن لَّمۡ تَنتَهُواْ لَنَرۡجُمَنَّكُمۡ وَلَيَمَسَّنَّكُم مِّنَّا عَذَابٌ أَلِيمٞ <span class="num">١٨</span></span> <span class="ayah">قَالُواْ طَـٰٓئِرُكُم مَّعَكُمۡ أَئِن ذُكِّرۡتُمۚ بَلۡ أَنتُمۡ قَوۡمٞ مُّسۡرِفُونَ <span class="num">١٩</span></span> <span class="ayah">وَجَآءَ مِنۡ أَقۡصَا ٱلۡمَدِينَةِ رَجُلٞ يَسۡعَىٰ قَالَ يَٰقَوۡمِ ٱتَّبِعُواْ ٱلۡمُرۡسَلِينَ <span class="num">٢٠</span></span> <span class="ayah">ٱتَّبِعُواْ مَن لَّا يَسۡـَٔلُكُمۡ أَجۡرٗا وَهُم مُّهۡتَدُونَ <span class="num">٢١</span></span> <span class="ayah">وَمَالِيَ لَآ أَعۡبُدُ ٱلَّذِي فَطَرَنِي وَإِلَيۡهِ تُرۡجَعُونَ <span class="num">٢٢</span></span> <span class="ayah">ءَأَتَّخِذُ مِن دُونِهِۦٓ ءَالِهَةً إِن يُرِدۡنِ ٱلرَّحۡمَٰنُ بِضُرّٖ لَّا تُغۡنِ عَنِّي شَفَٰعَتُهُمۡ شَيۡـٔٗا وَلَا يُنقِذُونِ <span class="num">٢٣</span></span> <span class="ayah">إِنِّيٓ إِذٗا لَّفِي ضَلَٰلٖ <input class="mubeen-check" type="checkbox" id="mubeen-3"><label class="mubeen-label" for="mubeen-3">مُّبِينٍ</label> <span class="num">٢٤</span></span> <span class="ayah">إِنِّيٓ ءَامَنتُ بِرَبِّكُمۡ فَٱسۡمَعُونِ <span class="num">٢٥</span></span> <span class="ayah">قِيلَ ٱدۡخُلِ ٱلۡجَنَّةَۖ قَالَ يَٰلَيۡتَ قَوۡمِي يَعۡلَمُونَ <span class="num">٢٦</span></span> <span class="ayah">بِمَا غَفَرَ لِي رَبِّي وَجَعَلَنِي مِنَ ٱلۡمُكۡرَمِينَ <span class="num">٢٧</span></span> <span class="ayah">۞وَمَآ أَنزَلۡنَا عَلَىٰ قَوۡمِهِۦ مِنۢ بَعۡدِهِۦ مِن جُندٖ مِّنَ ٱلسَّمَآءِ وَمَا كُنَّا مُنزِلِينَ <span class="num">٢٨</span></span> <span class="ayah">إِن كَانَتۡ إِلَّا صَيۡحَةٗ وَٰحِدَةٗ فَإِذَا هُمۡ خَٰمِدُونَ <span class="num">٢٩</span></span> <span class="ayah">يَٰحَسۡرَةً عَلَى ٱلۡعِبَادِۚ مَا يَأۡتِيهِم مِّن رَّسُولٍ إِلَّا كَانُواْ بِهِۦ يَسۡتَهۡزِءُونَ <span class="num">٣٠</span></span> <span class="ayah">أَلَمۡ يَرَوۡاْ كَمۡ أَهۡلَكۡنَا قَبۡلَهُم مِّنَ ٱلۡقُرُونِ أَنَّهُمۡ إِلَيۡهِمۡ لَا يَرۡجِعُونَ <span class="num">٣١</span></span> <span class="ayah">وَإِن كُلّٞ لَّمَّا جَمِيعٞ لَّدَيۡنَا مُحۡضَرُونَ <span class="num">٣٢</span></span> <span class="ayah">وَءَايَةٞ لَّهُمُ ٱلۡأَرۡضُ ٱلۡمَيۡتَةُ أَحۡيَيۡنَٰهَا وَأَخۡرَجۡنَا مِنۡهَا حَبّٗا فَمِنۡهُ يَأۡكُلُونَ <span class="num">٣٣</span></span> <span class="ayah">وَجَعَلۡنَا فِيهَا جَنَّـٰتٖ مِّن نَّخِيلٖ وَأَعۡنَٰبٖ وَفَجَّرۡنَا فِيهَا مِنَ ٱلۡعُيُونِ <span class="num">٣٤</span></span> <span class="ayah">لِيَأۡكُلُواْ مِن ثَمَرِهِۦ وَمَا عَمِلَتۡهُ أَيۡدِيهِمۡۚ أَفَلَا يَشۡكُرُونَ <span class="num">٣٥</span></span> <span class="ayah">سُبۡحَٰنَ ٱلَّذِي خَلَقَ ٱلۡأَزۡوَٰجَ كُلَّهَا مِمَّا تُنۢبِتُ ٱلۡأَرۡضُ وَمِنۡ أَنفُسِهِمۡ وَمِمَّا لَا يَعۡلَمُونَ <span class="num">٣٦</span></span> <span class="ayah">وَءَايَةٞ لَّهُمُ ٱلَّيۡلُ نَسۡلَخُ مِنۡهُ ٱلنَّهَارَ فَإِذَا هُم مُّظۡلِمُونَ <span class="num">٣٧</span></span> <span class="ayah">وَٱلشَّمۡسُ تَجۡرِي لِمُسۡتَقَرّٖ لَّهَاۚ ذَٰلِكَ تَقۡدِيرُ ٱلۡعَزِيزِ ٱلۡعَلِيمِ <span class="num">٣٨</span></span> <span class="ayah">وَٱلۡقَمَرَ قَدَّرۡنَٰهُ مَنَازِلَ حَتَّىٰ عَادَ كَٱلۡعُرۡجُونِ ٱلۡقَدِيمِ <span class="num">٣٩</span></span> <span class="ayah">لَا ٱلشَّمۡسُ يَنۢبَغِي لَهَآ أَن تُدۡرِكَ ٱلۡقَمَرَ وَلَا ٱلَّيۡلُ سَابِقُ ٱلنَّهَارِۚ وَكُلّٞ فِي فَلَكٖ يَسۡبَحُونَ <span class="num">٤٠</span></span> <span class="ayah">وَءَايَةٞ لَّهُمۡ أَنَّا حَمَلۡنَا ذُرِّيَّتَهُمۡ فِي ٱلۡفُلۡكِ ٱلۡمَشۡحُونِ <span class="num">٤١</span></span> <span class="ayah">وَخَلَقۡنَا لَهُم مِّن مِّثۡلِهِۦ مَا يَرۡكَبُونَ <span class="num">٤٢</span></span> <span class="ayah">وَإِن نَّشَأۡ نُغۡرِقۡهُمۡ فَلَا صَرِيخَ لَهُمۡ وَلَا هُمۡ يُنقَذُونَ <span class="num">٤٣</span></span> <span class="ayah">إِلَّا رَحۡمَةٗ مِّنَّا وَمَتَٰعًا إِلَىٰ حِينٖ <span class="num">٤٤</span></span> <span class="ayah">وَإِذَا قِيلَ لَهُمُ ٱتَّقُواْ مَا بَيۡنَ أَيۡدِيكُمۡ وَمَا خَلۡفَكُمۡ لَعَلَّكُمۡ تُرۡحَمُونَ <span class="num">٤٥</span></span> <span class="ayah">وَمَا تَأۡتِيهِم مِّنۡ ءَايَةٖ مِّنۡ ءَايَٰتِ رَبِّهِمۡ إِلَّا كَانُواْ عَنۡهَا مُعۡرِضِينَ <span class="num">٤٦</span></span> <span class="ayah">وَإِذَا قِيلَ لَهُمۡ أَنفِقُواْ مِمَّا رَزَقَكُمُ ٱللَّهُ قَالَ ٱلَّذِينَ كَفَرُواْ لِلَّذِينَ ءَامَنُوٓاْ أَنُطۡعِمُ مَن لَّوۡ يَشَآءُ ٱللَّهُ أَطۡعَمَهُۥٓ إِنۡ أَنتُمۡ إِلَّا فِي ضَلَٰلٖ <input class="mubeen-check" type="checkbox" id="mubeen-4"><label class="mubeen-label" for="mubeen-4">مُّبِينٖ</label> <span class="num">٤٧</span></span> <span class="ayah">وَيَقُولُونَ مَتَىٰ هَٰذَا ٱلۡوَعۡدُ إِن كُنتُمۡ صَٰدِقِينَ <span class="num">٤٨</span></span> <span class="ayah">مَا يَنظُرُونَ إِلَّا صَيۡحَةٗ وَٰحِدَةٗ تَأۡخُذُهُمۡ وَهُمۡ يَخِصِّمُونَ <span class="num">٤٩</span></span> <span class="ayah">فَلَا يَسۡتَطِيعُونَ تَوۡصِيَةٗ وَلَآ إِلَىٰٓ أَهۡلِهِمۡ يَرۡجِعُونَ <span class="num">٥٠</span></span> <span class="ayah">وَنُفِخَ فِي ٱلصُّورِ فَإِذَا هُم مِّنَ ٱلۡأَجۡدَاثِ إِلَىٰ رَبِّهِمۡ يَنسِلُونَ <span class="num">٥١</span></span> <span class="ayah">قَالُواْ يَٰوَيۡلَنَا مَنۢ بَعَثَنَا مِن مَّرۡقَدِنَاۜۗ هَٰذَا مَا وَعَدَ ٱلرَّحۡمَٰنُ وَصَدَقَ ٱلۡمُرۡسَلُونَ <span class="num">٥٢</span></span> <span class="ayah">إِن كَانَتۡ إِلَّا صَيۡحَةٗ وَٰحِدَةٗ فَإِذَا هُمۡ جَمِيعٞ لَّدَيۡنَا مُحۡضَرُونَ <span class="num">٥٣</span></span> <span class="ayah">فَٱلۡيَوۡمَ لَا تُظۡلَمُ نَفۡسٞ شَيۡـٔٗا وَلَا تُجۡزَوۡنَ إِلَّا مَا كُنتُمۡ تَعۡمَلُونَ <span class="num">٥٤</span></span> <span class="ayah">إِنَّ أَصۡحَٰبَ ٱلۡجَنَّةِ ٱلۡيَوۡمَ فِي شُغُلٖ فَٰكِهُونَ <span class="num">٥٥</span></span> <span class="ayah">هُمۡ وَأَزۡوَٰجُهُمۡ فِي ظِلَٰلٍ عَلَى ٱلۡأَرَآئِكِ مُتَّكِـُٔونَ <span class="num">٥٦</span></span> <span class="ayah">لَهُمۡ فِيهَا فَٰكِهَةٞ وَلَهُم مَّا يَدَّعُونَ <span class="num">٥٧</span></span> <span class="ayah">سَلَٰمٞ قَوۡلٗا مِّن رَّبّٖ رَّحِيمٖ <span class="num">٥٨</span></span> <span class="ayah">وَٱمۡتَٰزُواْ ٱلۡيَوۡمَ أَيُّهَا ٱلۡمُجۡرِمُونَ <span class="num">٥٩</span></span> <span class="ayah">۞أَلَمۡ أَعۡهَدۡ إِلَيۡكُمۡ يَٰبَنِيٓ ءَادَمَ أَن لَّا تَعۡبُدُواْ ٱلشَّيۡطَٰنَۖ إِنَّهُۥ لَكُمۡ عَدُوّٞ <input class="mubeen-check" type="checkbox" id="mubeen-5"><label class="mubeen-label" for="mubeen-5">مُّبِينٞ</label> <span class="num">٦٠</span></span> <span class="ayah">وَأَنِ ٱعۡبُدُونِيۚ هَٰذَا صِرَٰطٞ مُّسۡتَقِيمٞ <span class="num">٦١</span></span> <span class="ayah">وَلَقَدۡ أَضَلَّ مِنكُمۡ جِبِلّٗا كَثِيرًاۖ أَفَلَمۡ تَكُونُواْ تَعۡقِلُونَ <span class="num">٦٢</span></span> <span class="ayah">هَٰذِهِۦ جَهَنَّمُ ٱلَّتِي كُنتُمۡ تُوعَدُونَ <span class="num">٦٣</span></span> <span class="ayah">ٱصۡلَوۡهَا ٱلۡيَوۡمَ بِمَا كُنتُمۡ تَكۡفُرُونَ <span class="num">٦٤</span></span> <span class="ayah">ٱلۡيَوۡمَ نَخۡتِمُ عَلَىٰٓ أَفۡوَٰهِهِمۡ وَتُكَلِّمُنَآ أَيۡدِيهِمۡ وَتَشۡهَدُ أَرۡجُلُهُم بِمَا كَانُواْ يَكۡسِبُونَ <span class="num">٦٥</span></span> <span class="ayah">وَلَوۡ نَشَآءُ لَطَمَسۡنَا عَلَىٰٓ أَعۡيُنِهِمۡ فَٱسۡتَبَقُواْ ٱلصِّرَٰطَ فَأَنَّىٰ يُبۡصِرُونَ <span class="num">٦٦</span></span> <span class="ayah">وَلَوۡ نَشَآءُ لَمَسَخۡنَٰهُمۡ عَلَىٰ مَكَانَتِهِمۡ فَمَا ٱسۡتَطَٰعُواْ مُضِيّٗا وَلَا يَرۡجِعُونَ <span class="num">٦٧</span></span> <span class="ayah">وَمَن نُّعَمِّرۡهُ نُنَكِّسۡهُ فِي ٱلۡخَلۡقِۚ أَفَلَا يَعۡقِلُونَ <span class="num">٦٨</span></span> <span class="ayah">وَمَا عَلَّمۡنَٰهُ ٱلشِّعۡرَ وَمَا يَنۢبَغِي لَهُۥٓۚ إِنۡ هُوَ إِلَّا ذِكۡرٞ وَقُرۡءَانٞ <input class="mubeen-check" type="checkbox" id="mubeen-6"><label class="mubeen-label" for="mubeen-6">مُّبِينٞ</label> <span class="num">٦٩</span></span> <span class="ayah">لِّيُنذِرَ مَن كَانَ حَيّٗا وَيَحِقَّ ٱلۡقَوۡلُ عَلَى ٱلۡكَٰفِرِينَ <span class="num">٧٠</span></span> <span class="ayah">أَوَلَمۡ يَرَوۡاْ أَنَّا خَلَقۡنَا لَهُم مِّمَّا عَمِلَتۡ أَيۡدِينَآ أَنۡعَٰمٗا فَهُمۡ لَهَا مَٰلِكُونَ <span class="num">٧١</span></span> <span class="ayah">وَذَلَّلۡنَٰهَا لَهُمۡ فَمِنۡهَا رَكُوبُهُمۡ وَمِنۡهَا يَأۡكُلُونَ <span class="num">٧٢</span></span> <span class="ayah">وَلَهُمۡ فِيهَا مَنَٰفِعُ وَمَشَارِبُۚ أَفَلَا يَشۡكُرُونَ <span class="num">٧٣</span></span> <span class="ayah">وَٱتَّخَذُواْ مِن دُونِ ٱللَّهِ ءَالِهَةٗ لَّعَلَّهُمۡ يُنصَرُونَ <span class="num">٧٤</span></span> <span class="ayah">لَا يَسۡتَطِيعُونَ نَصۡرَهُمۡ وَهُمۡ لَهُمۡ جُندٞ مُّحۡضَرُونَ <span class="num">٧٥</span></span> <span class="ayah">فَلَا يَحۡزُنكَ قَوۡلُهُمۡۘ إِنَّا نَعۡلَمُ مَا يُسِرُّونَ وَمَا يُعۡلِنُونَ <span class="num">٧٦</span></span> <span class="ayah">أَوَلَمۡ يَرَ ٱلۡإِنسَٰنُ أَنَّا خَلَقۡنَٰهُ مِن نُّطۡفَةٖ فَإِذَا هُوَ خَصِيمٞ <input class="mubeen-check" type="checkbox" id="mubeen-7"><label class="mubeen-label" for="mubeen-7">مُّبِينٞ</label> <span class="num">٧٧</span></span> <span class="ayah">وَضَرَبَ لَنَا مَثَلٗا وَنَسِيَ خَلۡقَهُۥۖ قَالَ مَن يُحۡيِ ٱلۡعِظَٰمَ وَهِيَ رَمِيمٞ <span class="num">٧٨</span></span> <span class="ayah">قُلۡ يُحۡيِيهَا ٱلَّذِيٓ أَنشَأَهَآ أَوَّلَ مَرَّةٖۖ وَهُوَ بِكُلِّ خَلۡقٍ عَلِيمٌ <span class="num">٧٩</span></span> <span class="ayah">ٱلَّذِي جَعَلَ لَكُم مِّنَ ٱلشَّجَرِ ٱلۡأَخۡضَرِ نَارٗا فَإِذَآ أَنتُم مِّنۡهُ تُوقِدُونَ <span class="num">٨٠</span></span> <span class="ayah">أَوَلَيۡسَ ٱلَّذِي خَلَقَ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضَ بِقَٰدِرٍ عَلَىٰٓ أَن يَخۡلُقَ مِثۡلَهُمۚ بَلَىٰ وَهُوَ ٱلۡخَلَّـٰقُ ٱلۡعَلِيمُ <span class="num">٨١</span></span> <span class="ayah">إِنَّمَآ أَمۡرُهُۥٓ إِذَآ أَرَادَ شَيۡـًٔا أَن يَقُولَ لَهُۥ كُن فَيَكُونُ <span class="num">٨٢</span></span> <span class="ayah">فَسُبۡحَٰنَ ٱلَّذِي بِيَدِهِۦ مَلَكُوتُ كُلِّ شَيۡءٖ وَإِلَيۡهِ تُرۡجَعُونَ <span class="num">٨٣</span></span> 
+  </section>
+
+  <div class="note">
+    نص السورة موجود داخل الملف نفسه، لذلك يظهر مباشرة حتى بدون الإنترنت.
+  </div>
+
+  <section class="dedication">
+    <h2>🤲 صدقة جارية</h2>
+
+    <p>
+      نسأل الله الكريم أن يجعل هذا العمل خالصًا لوجهه،
+      وأن ينفع به كل من قرأه أو نشره.
+    </p>
+
+    <p><strong>اللهم اجعل ثواب هذا العمل صدقةً جاريةً عن روح:</strong></p>
+
+    <div class="names">
+      🌹 والدتي رحمها الله وغفر لها.<br>
+      🌹 والدي رحمه الله وغفر له.<br>
+      🌹 أخي رحمه الله وغفر له.
+    </div>
+
+    <p class="dua">
+      اللهم اغفر لهم وارحمهم، وعافهم واعفُ عنهم، وأكرم نُزُلهم،
+      ووسّع مُدخلهم، واجعل قبورهم روضةً من رياض الجنة،
+      واجمعنا بهم في الفردوس الأعلى. اللهم آمين.
+    </p>
+
+    <p>
+      إذا انتفعتم بهذا العمل، فلا تنسوا الدعاء لوالديَّ وأخي
+      بالرحمة والمغفرة. جزاكم الله خيرًا.
+    </p>
+
+    <div class="quran-dua">
+      ﴿رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا﴾
+    </div>
+
+    <div class="signature">
+      إعداد ونشر هذا العمل ابتغاء وجه الله تعالى<br>
+      Samy ElFeel
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  const arabicDigits = n => String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+
+  function updateProgress() {
+    const selected = document.querySelectorAll('.mubeen-check:checked, .mubeen.red').length;
+    const progress = document.getElementById('progressBox');
+    const completion = document.getElementById('completionMessage');
+
+    if (progress) {
+      progress.textContent = `تم تحديد ${arabicDigits(selected)} من ٧ مواضع لكلمة «مبين»`;
+    }
+    if (completion) {
+      completion.style.display = selected >= 7 ? 'block' : 'none';
+    }
+  }
+
+  document.addEventListener('change', function (event) {
+    if (event.target.classList.contains('mubeen-check')) updateProgress();
+  });
+
+  document.addEventListener('click', function (event) {
+    if (event.target.closest('.mubeen')) {
+      setTimeout(updateProgress, 0);
+    }
+  });
+
+  updateProgress();
+})();
+</script>
+
+</body>
+</html>
