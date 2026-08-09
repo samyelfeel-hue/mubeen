@@ -8,44 +8,59 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#f7f3e8;color:#17251d;font-family:-apple-system,BlinkMacSystemFont,"Geeza Pro","Traditional Arabic",Arial,sans-serif;padding-bottom:35px}
-header{background:#0f5132;color:white;text-align:center;padding:calc(24px + env(safe-area-inset-top)) 14px 24px}
-h1{margin:0;font-size:36px}.subtitle{margin-top:5px;opacity:.9;font-size:16px}
-main{width:min(760px,calc(100% - 22px));margin:18px auto}
-.welcome,.footer{background:#fffdf7;border:1px solid #ddd3bc;border-radius:18px;padding:20px;text-align:center;line-height:1.9}
-.welcome h2,.footer h2{margin:0 0 8px;color:#0f5132}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:16px 0}
-.card{display:block;text-decoration:none;color:#17251d;background:#fffdf7;border:1px solid #d8c79c;border-radius:18px;padding:24px 14px;text-align:center}
-.card:active{transform:scale(.99)}
-.icon{font-size:40px}.card h2{margin:8px 0;color:#0f5132}.card p{color:#657068;font-size:14px;min-height:42px}
-.button{display:inline-block;background:#0f5132;color:white;border-radius:12px;padding:10px 22px;font-weight:700}
-.future{text-align:center;color:#657068;margin:18px 0}
-.quran-dua{margin-top:15px;padding-top:13px;border-top:1px solid #ddd3bc;color:#0f5132;font-size:21px;font-weight:700}
-.signature{margin-top:16px;color:#657068;font-size:13px}
+header{background:#0f5132;color:#fff;text-align:center;padding:calc(25px + env(safe-area-inset-top)) 15px 25px}
+h1{font-size:36px;margin:0 0 5px}.sub{opacity:.92;font-size:17px}
+main{width:min(720px,calc(100% - 24px));margin:22px auto 40px}
+.box{background:#fffdf7;border:1px solid #ddd3bc;border-radius:20px;padding:20px;text-align:center;line-height:1.9}
+.box h2{margin:0;color:#0f5132;font-size:25px}.box p{margin:7px 0 0;color:#5c675f}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+.card{display:block;background:#fffdf7;border:1px solid #d8c79c;border-radius:20px;padding:24px 14px;text-decoration:none;color:#17251d;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.04)}
+.card:active{transform:scale(.985)}
+.icon{font-size:40px}.card h2{color:#0f5132;margin:8px 0 5px;font-size:24px}.card p{margin:0 0 14px;color:#657068;font-size:14px;min-height:42px}
+.open{display:inline-block;background:#0f5132;color:#fff;border-radius:12px;padding:10px 22px;font-weight:700}
+.future{text-align:center;color:#68736c;margin:18px 0;font-size:14px}
+.footer{margin-top:22px}.dua{color:#0f5132;font-size:20px;font-weight:700;border-top:1px solid #ddd3bc;padding-top:12px;margin-top:12px}
+.signature{font-size:13px;color:#657068;margin-top:12px}
 @media(max-width:520px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header><h1>مُبين</h1><div class="subtitle">القرآن والذكر</div></header>
+<header><h1>مُبين</h1><div class="sub">القرآن والذكر</div></header>
 <main>
-<section class="welcome">
+<section class="box">
 <h2>📖 اختر السورة</h2>
-<p>اختر السورة التي تريد قراءتها، وسيتم إضافة سور أخرى بإذن الله.</p>
+<p>اختر السورة وطريقة القراءة التي تريدها، وسيتم إضافة سور أخرى بإذن الله.</p>
 </section>
+
 <div class="grid">
 <a class="card" href="yaseen.html">
-<div class="icon">📖</div><h2>سورة يس</h2>
-<p>٨٣ آية • مواضع «مبين» السبعة</p><span class="button">اقرأ الآن</span>
+<div class="icon">📖</div>
+<h2>سورة يس – مبين</h2>
+<p>طريقة القراءة بمواضع «مبين» السبعة</p>
+<span class="open">اقرأ الآن</span>
 </a>
+
+<a class="card" href="yaseen_salam.html">
+<div class="icon">🌿</div>
+<h2>سورة يس – سلام قولًا من ربٍّ رحيم</h2>
+<p>طريقة مستقلة مع عدادات التكرار</p>
+<span class="open">اقرأ الآن</span>
+</a>
+
 <a class="card" href="alwaqiah.html">
-<div class="icon">📖</div><h2>سورة الواقعة</h2>
-<p>٩٦ آية • عدادا الذكر عند الآيتين ٧٤ و٩٦</p><span class="button">اقرأ الآن</span>
+<div class="icon">📖</div>
+<h2>سورة الواقعة</h2>
+<p>٩٦ آية • عدادا الذكر عند الآيتين ٧٤ و٩٦</p>
+<span class="open">اقرأ الآن</span>
 </a>
 </div>
+
 <div class="future">🌿 سيتم إضافة سور أخرى بإذن الله</div>
-<section class="footer">
+
+<section class="box footer">
 <h2>🤲 صدقة جارية</h2>
 <p>نسأل الله الكريم أن يجعل هذا العمل خالصًا لوجهه، وأن ينفع به كل من قرأه أو نشره.</p>
-<div class="quran-dua">﴿رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا﴾</div>
+<div class="dua">﴿رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا﴾</div>
 <div class="signature">إعداد ونشر هذا العمل ابتغاء وجه الله تعالى<br>Samy ElFeel</div>
 </section>
 </main>
