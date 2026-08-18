@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="سورة الواقعة">
+<meta name="theme-color" content="#0f5132">
+<title>سورة الواقعة – اسم الله الرحيم</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: #f7f3e8; color: #17251d;
+  font-family: -apple-system, BlinkMacSystemFont, "Geeza Pro", "Traditional Arabic", Arial, sans-serif;
+  padding-bottom: 35px;
+}
+header {
+  position: sticky; top: 0; z-index: 5; background: #0f5132; color: white;
+  text-align: center; padding: calc(14px + env(safe-area-inset-top)) 12px 14px;
+}
+h1 { margin: 0; font-size: 26px; }
+.subtitle { font-size: 14px; margin-top: 4px; opacity: .9; }
+main { width: min(760px, calc(100% - 22px)); margin: 16px auto; }
+.info, .verses, .instructions, .dedication {
+  background: #fffdf7; border: 1px solid #ddd3bc; border-radius: 18px; padding: 18px;
+}
+.instructions { margin-bottom: 14px; line-height: 1.9; }
+.instructions h2 { margin: 0 0 12px; color: #0f5132; text-align: center; font-size: 24px; }
+.instructions h3 { margin: 16px 0 6px; color: #0f5132; font-size: 19px; }
+.instructions ul { margin: 4px 0 0; padding-right: 22px; }
+.notice {
+  margin-top: 17px; background: #f3eee0; border-right: 4px solid #ad9254;
+  border-radius: 10px; padding: 12px; font-size: 15px;
+}
+.start-link {
+  display: block; width: 100%; margin-top: 18px; padding: 14px 16px; border-radius: 14px;
+  background: #0f5132; color: white; text-align: center; text-decoration: none;
+  font-size: 20px; font-weight: 700;
+}
+.info { text-align: center; line-height: 1.8; }
+.basmala { color: #0f5132; font-size: 31px; font-weight: 700; margin: 9px 0; }
+#reading-start { scroll-margin-top: 105px; }
+.verses { margin-top: 14px; font-size: 30px; line-height: 2.15; text-align: justify; }
+.ayah { display: inline; }
+.num {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 34px; height: 34px;
+  padding: 0 7px; margin: 0 4px; border: 1.5px solid #ad9254; border-radius: 50%;
+  color: #76591b; font-size: .55em; vertical-align: middle;
+}
+.special-ayah {
+  color: #c90000; font-weight: 800; background: rgba(208,0,0,.07);
+  border-radius: 8px; padding: 0 3px;
+}
+.dhikr-card {
+  display: block; margin: 18px 0 22px; padding: 18px 14px; text-align: center;
+  background: #fff8df; border: 2px solid #d9c27b; border-radius: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, "Geeza Pro", Arial, sans-serif;
+  line-height: 1.5;
+}
+.dhikr-title { color: #0f5132; font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+.dhikr-help { color: #6d6246; font-size: 14px; margin-bottom: 12px; }
+.counter-btn {
+  width: min(260px, 85%); min-height: 92px; border: 0; border-radius: 22px;
+  background: #0f5132; color: white; font-size: 34px; font-weight: 800;
+  cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 5px 0 #093620;
+}
+.counter-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #093620; }
+.counter-btn.completed { background: #287b45; box-shadow: 0 5px 0 #18562f; }
+.counter-actions { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 13px; }
+.reset-btn, .sound-btn {
+  border: 1px solid #bda96f; border-radius: 10px; background: white; color: #574312;
+  padding: 8px 11px; font-size: 13px; cursor: pointer;
+}
+.done-message {
+  display: none; margin-top: 13px; padding: 10px; border-radius: 12px;
+  background: #e8f5ec; color: #174b2d; font-size: 16px; font-weight: 800;
+}
+.dhikr-card.done .done-message { display: block; }
+.note { text-align: center; color: #617066; font-size: 13px; line-height: 1.7; margin: 18px 12px; }
+.dedication { margin-top: 18px; text-align: center; line-height: 2; }
+.dedication h2 { margin: 0 0 10px; color: #0f5132; font-size: 24px; }
+.dedication .names { margin: 12px 0; font-weight: 700; }
+.quran-dua { margin-top: 15px; padding-top: 13px; border-top: 1px solid #ddd3bc; color: #0f5132; font-size: 21px; font-weight: 700; }
+.signature { margin-top: 16px; color: #657068; font-size: 13px; }
+.back-link { display:inline-block; margin-bottom:12px; color:#0f5132; text-decoration:none; font-weight:700; }
+@media (max-width: 480px) {
+  .verses { font-size: 27px; line-height: 2.05; padding: 15px; }
+  .counter-btn { min-height: 88px; font-size: 32px; }
+}
+
+.raheem-red{color:#c90000;font-weight:800;font-size:20px}
+.raheem-method{margin-bottom:14px;background:#fffdf7;border:1px solid #ddd3bc;border-radius:18px;padding:19px;line-height:1.95}
+.raheem-method h2{margin:0 0 10px;color:#0f5132;text-align:center;font-size:25px}
+.raheem-step{padding:13px 0;border-bottom:1px solid #eee4d1}.raheem-step:last-of-type{border-bottom:0}
+.raheem-counter{display:inline-flex;align-items:center;gap:7px;margin-top:8px;padding:5px 7px;background:#fff8df;border:1px solid #d9c27b;border-radius:11px}
+.raheem-count{min-width:82px;min-height:41px;border:0;border-radius:9px;background:#0f5132;color:#fff;font-size:18px;font-weight:800;touch-action:manipulation}
+.raheem-reset{border:1px solid #bda96f;background:#fff;border-radius:8px;padding:6px 8px}
+.raheem-counter.done{background:#e8f5ec}.raheem-counter.done .raheem-count{background:#287b45}
+.raheem-dua{background:#f3eee0;border-right:4px solid #ad9254;border-radius:12px;padding:14px;margin-top:12px}
+.raheem-notice{font-size:13px;color:#6d675d;margin-top:14px}
+
+</style>
+</head>
+<body>
+<header>
+  <h1>سورة الواقعة – اسم الله «الرحيم»</h1>
+  <div class="subtitle">تعمل بدون إنترنت وبدون تحميل</div>
+</header>
+
+<main>
+  <a class="back-link" href="./">← سورة يس</a>
+
+  
+<section class="raheem-method">
+<h2>🌿 الطريقة بعد صلاة الفجر</h2>
+
+<div class="raheem-step">
+<div class="raheem-red">الصلاة على النبي ﷺ</div>
+<div><strong>١٠٠ مرة</strong></div>
+<div class="raheem-counter" data-goal="100" data-key="raheem-salat">
+<button class="raheem-count" type="button"><span class="rv">٠</span> / ١٠٠</button>
+<button class="raheem-reset" type="button">↺</button>
+</div>
+</div>
+
+<div class="raheem-step">
+<div class="raheem-red">قراءة سورة الواقعة</div>
+<div><strong>٣ مرات</strong></div>
+<div class="raheem-counter" data-goal="3" data-key="raheem-waqiah">
+<button class="raheem-count" type="button"><span class="rv">٠</span> / ٣</button>
+<button class="raheem-reset" type="button">↺</button>
+</div>
+</div>
+
+<div class="raheem-step">
+<div class="raheem-red">يا رحيم، أنت الرحيم، يا الله</div>
+<div><strong>٩٥ مرة</strong></div>
+<div class="raheem-counter" data-goal="95" data-key="raheem-dhikr">
+<button class="raheem-count" type="button"><span class="rv">٠</span> / ٩٥</button>
+<button class="raheem-reset" type="button">↺</button>
+</div>
+</div>
+
+<div class="raheem-dua">
+<strong>🤲 الدعاء</strong>
+<p>اللهم إني أسألك ببركة سورة الواقعة أن تفتح لي أبواب الرزق وتيسره لي، وأسألك البركة فيما رزقتني، وتمنحني الصحة والرضا.</p>
+<p><strong>ثم ادعُ الله بحاجتك.</strong></p>
+</div>
+
+<div class="raheem-notice"><strong>تنبيه:</strong> هذه الطريقة والأعداد ليست سنة ثابتة عن النبي ﷺ، ولا تُعد ضمانًا لتحقق طلب معين.</div>
+</section>
+
+<section class="instructions">
+    <h2>🌿 طريقة القراءة</h2>
+    <h3>١. الاستعداد</h3>
+    <ul>
+      <li>البدء بوضوء وخشوع.</li>
+      <li>استحضار نية خالصة لله تعالى.</li>
+      <li>الدعاء بما تشاء من خيري الدنيا والآخرة.</li>
+    </ul>
+
+    <h3>٢. عند الآية ٧٤</h3>
+    <ul>
+      <li>عند ﴿فَسَبِّحۡ بِٱسۡمِ رَبِّكَ ٱلۡعَظِيمِ﴾ ستظهر الآية باللون الأحمر.</li>
+      <li>قل: «سبحان الله وبحمده، سبحان الله العظيم» واضغط العداد مع كل مرة حتى ٧٤.</li>
+      <li>عند الضغطة رقم ٧٤ فقط يعطي الجهاز تنبيهًا، ثم أكمل القراءة.</li>
+    </ul>
+
+    <h3>٣. عند الآية ٩٦</h3>
+    <ul>
+      <li>يظهر عداد مستقل يبدأ من الصفر.</li>
+      <li>كرر الذكر واضغط حتى ٩٦، وعند الضغطة رقم ٩٦ فقط يصدر التنبيه.</li>
+    </ul>
+
+    <div class="notice">
+      <strong>تنبيه:</strong>
+      العداد أداة تنظيمية للذكر أثناء هذه الطريقة، ولا يُقصد به إثبات عددٍ أو فضيلةٍ شرعية مخصوصة للسورة.
+    </div>
+    <a class="start-link" href="#reading-start">📖 ابدأ القراءة</a>
+  </section>
+
+  <section class="info" id="reading-start">
+    <div>سورة مكية • ٩٦ آية</div>
+    <div class="basmala">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div>الآيتان ٧٤ و٩٦ باللون الأحمر، وتحت كل واحدة عداد مستقل باللمس.</div>
+  </section>
+
+  <section class="verses">
+    <span class="ayah" id="ayah-1">إِذَا وَقَعَتِ ٱلۡوَاقِعَةُ <span class="num">١</span></span> <span class="ayah" id="ayah-2">لَيۡسَ لِوَقۡعَتِهَا كَاذِبَةٌ <span class="num">٢</span></span> <span class="ayah" id="ayah-3">خَافِضَةٞ رَّافِعَةٌ <span class="num">٣</span></span> <span class="ayah" id="ayah-4">إِذَا رُجَّتِ ٱلۡأَرۡضُ رَجّٗا <span class="num">٤</span></span> <span class="ayah" id="ayah-5">وَبُسَّتِ ٱلۡجِبَالُ بَسّٗا <span class="num">٥</span></span> <span class="ayah" id="ayah-6">فَكَانَتۡ هَبَآءٗ مُّنۢبَثّٗا <span class="num">٦</span></span> <span class="ayah" id="ayah-7">وَكُنتُمۡ أَزۡوَٰجٗا ثَلَٰثَةٗ <span class="num">٧</span></span> <span class="ayah" id="ayah-8">فَأَصۡحَٰبُ ٱلۡمَيۡمَنَةِ مَآ أَصۡحَٰبُ ٱلۡمَيۡمَنَةِ <span class="num">٨</span></span> <span class="ayah" id="ayah-9">وَأَصۡحَٰبُ ٱلۡمَشۡـَٔمَةِ مَآ أَصۡحَٰبُ ٱلۡمَشۡـَٔمَةِ <span class="num">٩</span></span> <span class="ayah" id="ayah-10">وَٱلسَّـٰبِقُونَ ٱلسَّـٰبِقُونَ <span class="num">١٠</span></span> <span class="ayah" id="ayah-11">أُوْلَـٰٓئِكَ ٱلۡمُقَرَّبُونَ <span class="num">١١</span></span> <span class="ayah" id="ayah-12">فِي جَنَّـٰتِ ٱلنَّعِيمِ <span class="num">١٢</span></span> <span class="ayah" id="ayah-13">ثُلَّةٞ مِّنَ ٱلۡأَوَّلِينَ <span class="num">١٣</span></span> <span class="ayah" id="ayah-14">وَقَلِيلٞ مِّنَ ٱلۡأٓخِرِينَ <span class="num">١٤</span></span> <span class="ayah" id="ayah-15">عَلَىٰ سُرُرٖ مَّوۡضُونَةٖ <span class="num">١٥</span></span> <span class="ayah" id="ayah-16">مُّتَّكِـِٔينَ عَلَيۡهَا مُتَقَٰبِلِينَ <span class="num">١٦</span></span> <span class="ayah" id="ayah-17">يَطُوفُ عَلَيۡهِمۡ وِلۡدَٰنٞ مُّخَلَّدُونَ <span class="num">١٧</span></span> <span class="ayah" id="ayah-18">بِأَكۡوَابٖ وَأَبَارِيقَ وَكَأۡسٖ مِّن مَّعِينٖ <span class="num">١٨</span></span> <span class="ayah" id="ayah-19">لَّا يُصَدَّعُونَ عَنۡهَا وَلَا يُنزِفُونَ <span class="num">١٩</span></span> <span class="ayah" id="ayah-20">وَفَٰكِهَةٖ مِّمَّا يَتَخَيَّرُونَ <span class="num">٢٠</span></span> <span class="ayah" id="ayah-21">وَلَحۡمِ طَيۡرٖ مِّمَّا يَشۡتَهُونَ <span class="num">٢١</span></span> <span class="ayah" id="ayah-22">وَحُورٌ عِينٞ <span class="num">٢٢</span></span> <span class="ayah" id="ayah-23">كَأَمۡثَٰلِ ٱللُّؤۡلُوِٕ ٱلۡمَكۡنُونِ <span class="num">٢٣</span></span> <span class="ayah" id="ayah-24">جَزَآءَۢ بِمَا كَانُواْ يَعۡمَلُونَ <span class="num">٢٤</span></span> <span class="ayah" id="ayah-25">لَا يَسۡمَعُونَ فِيهَا لَغۡوٗا وَلَا تَأۡثِيمًا <span class="num">٢٥</span></span> <span class="ayah" id="ayah-26">إِلَّا قِيلٗا سَلَٰمٗا سَلَٰمٗا <span class="num">٢٦</span></span> <span class="ayah" id="ayah-27">وَأَصۡحَٰبُ ٱلۡيَمِينِ مَآ أَصۡحَٰبُ ٱلۡيَمِينِ <span class="num">٢٧</span></span> <span class="ayah" id="ayah-28">فِي سِدۡرٖ مَّخۡضُودٖ <span class="num">٢٨</span></span> <span class="ayah" id="ayah-29">وَطَلۡحٖ مَّنضُودٖ <span class="num">٢٩</span></span> <span class="ayah" id="ayah-30">وَظِلّٖ مَّمۡدُودٖ <span class="num">٣٠</span></span> <span class="ayah" id="ayah-31">وَمَآءٖ مَّسۡكُوبٖ <span class="num">٣١</span></span> <span class="ayah" id="ayah-32">وَفَٰكِهَةٖ كَثِيرَةٖ <span class="num">٣٢</span></span> <span class="ayah" id="ayah-33">لَّا مَقۡطُوعَةٖ وَلَا مَمۡنُوعَةٖ <span class="num">٣٣</span></span> <span class="ayah" id="ayah-34">وَفُرُشٖ مَّرۡفُوعَةٍ <span class="num">٣٤</span></span> <span class="ayah" id="ayah-35">إِنَّآ أَنشَأۡنَٰهُنَّ إِنشَآءٗ <span class="num">٣٥</span></span> <span class="ayah" id="ayah-36">فَجَعَلۡنَٰهُنَّ أَبۡكَارًا <span class="num">٣٦</span></span> <span class="ayah" id="ayah-37">عُرُبًا أَتۡرَابٗا <span class="num">٣٧</span></span> <span class="ayah" id="ayah-38">لِّأَصۡحَٰبِ ٱلۡيَمِينِ <span class="num">٣٨</span></span> <span class="ayah" id="ayah-39">ثُلَّةٞ مِّنَ ٱلۡأَوَّلِينَ <span class="num">٣٩</span></span> <span class="ayah" id="ayah-40">وَثُلَّةٞ مِّنَ ٱلۡأٓخِرِينَ <span class="num">٤٠</span></span> <span class="ayah" id="ayah-41">وَأَصۡحَٰبُ ٱلشِّمَالِ مَآ أَصۡحَٰبُ ٱلشِّمَالِ <span class="num">٤١</span></span> <span class="ayah" id="ayah-42">فِي سَمُومٖ وَحَمِيمٖ <span class="num">٤٢</span></span> <span class="ayah" id="ayah-43">وَظِلّٖ مِّن يَحۡمُومٖ <span class="num">٤٣</span></span> <span class="ayah" id="ayah-44">لَّا بَارِدٖ وَلَا كَرِيمٍ <span class="num">٤٤</span></span> <span class="ayah" id="ayah-45">إِنَّهُمۡ كَانُواْ قَبۡلَ ذَٰلِكَ مُتۡرَفِينَ <span class="num">٤٥</span></span> <span class="ayah" id="ayah-46">وَكَانُواْ يُصِرُّونَ عَلَى ٱلۡحِنثِ ٱلۡعَظِيمِ <span class="num">٤٦</span></span> <span class="ayah" id="ayah-47">وَكَانُواْ يَقُولُونَ أَئِذَا مِتۡنَا وَكُنَّا تُرَابٗا وَعِظَٰمًا أَءِنَّا لَمَبۡعُوثُونَ <span class="num">٤٧</span></span> <span class="ayah" id="ayah-48">أَوَءَابَآؤُنَا ٱلۡأَوَّلُونَ <span class="num">٤٨</span></span> <span class="ayah" id="ayah-49">قُلۡ إِنَّ ٱلۡأَوَّلِينَ وَٱلۡأٓخِرِينَ <span class="num">٤٩</span></span> <span class="ayah" id="ayah-50">لَمَجۡمُوعُونَ إِلَىٰ مِيقَٰتِ يَوۡمٖ مَّعۡلُومٖ <span class="num">٥٠</span></span> <span class="ayah" id="ayah-51">ثُمَّ إِنَّكُمۡ أَيُّهَا ٱلضَّآلُّونَ ٱلۡمُكَذِّبُونَ <span class="num">٥١</span></span> <span class="ayah" id="ayah-52">لَأٓكِلُونَ مِن شَجَرٖ مِّن زَقُّومٖ <span class="num">٥٢</span></span> <span class="ayah" id="ayah-53">فَمَالِـُٔونَ مِنۡهَا ٱلۡبُطُونَ <span class="num">٥٣</span></span> <span class="ayah" id="ayah-54">فَشَٰرِبُونَ عَلَيۡهِ مِنَ ٱلۡحَمِيمِ <span class="num">٥٤</span></span> <span class="ayah" id="ayah-55">فَشَٰرِبُونَ شُرۡبَ ٱلۡهِيمِ <span class="num">٥٥</span></span> <span class="ayah" id="ayah-56">هَٰذَا نُزُلُهُمۡ يَوۡمَ ٱلدِّينِ <span class="num">٥٦</span></span> <span class="ayah" id="ayah-57">نَحۡنُ خَلَقۡنَٰكُمۡ فَلَوۡلَا تُصَدِّقُونَ <span class="num">٥٧</span></span> <span class="ayah" id="ayah-58">أَفَرَءَيۡتُم مَّا تُمۡنُونَ <span class="num">٥٨</span></span> <span class="ayah" id="ayah-59">ءَأَنتُمۡ تَخۡلُقُونَهُۥٓ أَمۡ نَحۡنُ ٱلۡخَٰلِقُونَ <span class="num">٥٩</span></span> <span class="ayah" id="ayah-60">نَحۡنُ قَدَّرۡنَا بَيۡنَكُمُ ٱلۡمَوۡتَ وَمَا نَحۡنُ بِمَسۡبُوقِينَ <span class="num">٦٠</span></span> <span class="ayah" id="ayah-61">عَلَىٰٓ أَن نُّبَدِّلَ أَمۡثَٰلَكُمۡ وَنُنشِئَكُمۡ فِي مَا لَا تَعۡلَمُونَ <span class="num">٦١</span></span> <span class="ayah" id="ayah-62">وَلَقَدۡ عَلِمۡتُمُ ٱلنَّشۡأَةَ ٱلۡأُولَىٰ فَلَوۡلَا تَذَكَّرُونَ <span class="num">٦٢</span></span> <span class="ayah" id="ayah-63">أَفَرَءَيۡتُم مَّا تَحۡرُثُونَ <span class="num">٦٣</span></span> <span class="ayah" id="ayah-64">ءَأَنتُمۡ تَزۡرَعُونَهُۥٓ أَمۡ نَحۡنُ ٱلزَّـٰرِعُونَ <span class="num">٦٤</span></span> <span class="ayah" id="ayah-65">لَوۡ نَشَآءُ لَجَعَلۡنَٰهُ حُطَٰمٗا فَظَلۡتُمۡ تَفَكَّهُونَ <span class="num">٦٥</span></span> <span class="ayah" id="ayah-66">إِنَّا لَمُغۡرَمُونَ <span class="num">٦٦</span></span> <span class="ayah" id="ayah-67">بَلۡ نَحۡنُ مَحۡرُومُونَ <span class="num">٦٧</span></span> <span class="ayah" id="ayah-68">أَفَرَءَيۡتُمُ ٱلۡمَآءَ ٱلَّذِي تَشۡرَبُونَ <span class="num">٦٨</span></span> <span class="ayah" id="ayah-69">ءَأَنتُمۡ أَنزَلۡتُمُوهُ مِنَ ٱلۡمُزۡنِ أَمۡ نَحۡنُ ٱلۡمُنزِلُونَ <span class="num">٦٩</span></span> <span class="ayah" id="ayah-70">لَوۡ نَشَآءُ جَعَلۡنَٰهُ أُجَاجٗا فَلَوۡلَا تَشۡكُرُونَ <span class="num">٧٠</span></span> <span class="ayah" id="ayah-71">أَفَرَءَيۡتُمُ ٱلنَّارَ ٱلَّتِي تُورُونَ <span class="num">٧١</span></span> <span class="ayah" id="ayah-72">ءَأَنتُمۡ أَنشَأۡتُمۡ شَجَرَتَهَآ أَمۡ نَحۡنُ ٱلۡمُنشِـُٔونَ <span class="num">٧٢</span></span> <span class="ayah" id="ayah-73">نَحۡنُ جَعَلۡنَٰهَا تَذۡكِرَةٗ وَمَتَٰعٗا لِّلۡمُقۡوِينَ <span class="num">٧٣</span></span> <span class="ayah special-ayah" id="ayah-74">فَسَبِّحۡ بِٱسۡمِ رَبِّكَ ٱلۡعَظِيمِ <span class="num">٧٤</span></span> 
+        <div class="dhikr-card" data-goal="74" data-key="waqiah-counter-74">
+          <div class="dhikr-title">🌿 سبحان الله وبحمده، سبحان الله العظيم</div>
+          <div class="dhikr-help">اضغط على العداد مع كل مرة</div>
+          <button class="counter-btn" type="button" aria-label="عداد الذكر للآية 74">
+            <span class="count">٠</span><span class="slash"> / </span><span class="goal">٧٤</span>
+          </button>
+          <div class="counter-actions">
+            <button class="reset-btn" type="button">↺ إعادة العداد</button>
+            <button class="sound-btn" type="button" aria-pressed="false">🔊 التنبيه مفعّل</button>
+          </div>
+          <div class="done-message" role="status">✓ تم الذكر — أكمل القراءة</div>
+        </div>
+         <span class="ayah" id="ayah-75">۞فَلَآ أُقۡسِمُ بِمَوَٰقِعِ ٱلنُّجُومِ <span class="num">٧٥</span></span> <span class="ayah" id="ayah-76">وَإِنَّهُۥ لَقَسَمٞ لَّوۡ تَعۡلَمُونَ عَظِيمٌ <span class="num">٧٦</span></span> <span class="ayah" id="ayah-77">إِنَّهُۥ لَقُرۡءَانٞ كَرِيمٞ <span class="num">٧٧</span></span> <span class="ayah" id="ayah-78">فِي كِتَٰبٖ مَّكۡنُونٖ <span class="num">٧٨</span></span> <span class="ayah" id="ayah-79">لَّا يَمَسُّهُۥٓ إِلَّا ٱلۡمُطَهَّرُونَ <span class="num">٧٩</span></span> <span class="ayah" id="ayah-80">تَنزِيلٞ مِّن رَّبِّ ٱلۡعَٰلَمِينَ <span class="num">٨٠</span></span> <span class="ayah" id="ayah-81">أَفَبِهَٰذَا ٱلۡحَدِيثِ أَنتُم مُّدۡهِنُونَ <span class="num">٨١</span></span> <span class="ayah" id="ayah-82">وَتَجۡعَلُونَ رِزۡقَكُمۡ أَنَّكُمۡ تُكَذِّبُونَ <span class="num">٨٢</span></span> <span class="ayah" id="ayah-83">فَلَوۡلَآ إِذَا بَلَغَتِ ٱلۡحُلۡقُومَ <span class="num">٨٣</span></span> <span class="ayah" id="ayah-84">وَأَنتُمۡ حِينَئِذٖ تَنظُرُونَ <span class="num">٨٤</span></span> <span class="ayah" id="ayah-85">وَنَحۡنُ أَقۡرَبُ إِلَيۡهِ مِنكُمۡ وَلَٰكِن لَّا تُبۡصِرُونَ <span class="num">٨٥</span></span> <span class="ayah" id="ayah-86">فَلَوۡلَآ إِن كُنتُمۡ غَيۡرَ مَدِينِينَ <span class="num">٨٦</span></span> <span class="ayah" id="ayah-87">تَرۡجِعُونَهَآ إِن كُنتُمۡ صَٰدِقِينَ <span class="num">٨٧</span></span> <span class="ayah" id="ayah-88">فَأَمَّآ إِن كَانَ مِنَ ٱلۡمُقَرَّبِينَ <span class="num">٨٨</span></span> <span class="ayah" id="ayah-89">فَرَوۡحٞ وَرَيۡحَانٞ وَجَنَّتُ نَعِيمٖ <span class="num">٨٩</span></span> <span class="ayah" id="ayah-90">وَأَمَّآ إِن كَانَ مِنۡ أَصۡحَٰبِ ٱلۡيَمِينِ <span class="num">٩٠</span></span> <span class="ayah" id="ayah-91">فَسَلَٰمٞ لَّكَ مِنۡ أَصۡحَٰبِ ٱلۡيَمِينِ <span class="num">٩١</span></span> <span class="ayah" id="ayah-92">وَأَمَّآ إِن كَانَ مِنَ ٱلۡمُكَذِّبِينَ ٱلضَّآلِّينَ <span class="num">٩٢</span></span> <span class="ayah" id="ayah-93">فَنُزُلٞ مِّنۡ حَمِيمٖ <span class="num">٩٣</span></span> <span class="ayah" id="ayah-94">وَتَصۡلِيَةُ جَحِيمٍ <span class="num">٩٤</span></span> <span class="ayah" id="ayah-95">إِنَّ هَٰذَا لَهُوَ حَقُّ ٱلۡيَقِينِ <span class="num">٩٥</span></span> <span class="ayah special-ayah" id="ayah-96">فَسَبِّحۡ بِٱسۡمِ رَبِّكَ ٱلۡعَظِيمِ <span class="num">٩٦</span></span> 
+        <div class="dhikr-card" data-goal="96" data-key="waqiah-counter-96">
+          <div class="dhikr-title">🌿 سبحان الله وبحمده، سبحان الله العظيم</div>
+          <div class="dhikr-help">اضغط على العداد مع كل مرة</div>
+          <button class="counter-btn" type="button" aria-label="عداد الذكر للآية 96">
+            <span class="count">٠</span><span class="slash"> / </span><span class="goal">٩٦</span>
+          </button>
+          <div class="counter-actions">
+            <button class="reset-btn" type="button">↺ إعادة العداد</button>
+            <button class="sound-btn" type="button" aria-pressed="false">🔊 التنبيه مفعّل</button>
+          </div>
+          <div class="done-message" role="status">✓ تم الذكر — أكمل القراءة</div>
+        </div>
+        
+  </section>
+
+  <div class="note">نص السورة موجود داخل الملف نفسه، لذلك يظهر مباشرة حتى بدون الإنترنت.</div>
+
+  <section class="dedication">
+    <h2>🤲 صدقة جارية</h2>
+    <p>نسأل الله الكريم أن يجعل هذا العمل خالصًا لوجهه، وأن ينفع به كل من قرأه أو نشره.</p>
+    <p><strong>اللهم اجعل ثواب هذا العمل صدقةً جاريةً عن روح:</strong></p>
+    <div class="names">
+      🌹 والدتي رحمها الله وغفر لها.<br>
+      🌹 والدي رحمه الله وغفر له.<br>
+      🌹 أخي رحمه الله وغفر له.
+    </div>
+    <p>اللهم اغفر لهم وارحمهم، وعافهم واعفُ عنهم، وأكرم نُزُلهم، ووسّع مُدخلهم، واجعل قبورهم روضةً من رياض الجنة، واجمعنا بهم في الفردوس الأعلى. اللهم آمين.</p>
+    <p>إذا انتفعتم بهذا العمل، فلا تنسوا الدعاء لوالديَّ وأخي بالرحمة والمغفرة. جزاكم الله خيرًا.</p>
+    <div class="quran-dua">﴿رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا﴾</div>
+    <div class="signature">إعداد ونشر هذا العمل ابتغاء وجه الله تعالى<br>Samy ElFeel</div>
+  </section>
+</main>
+
+<script>
+(function () {
+  const toArabic = n => String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+
+  // Safe storage helpers: some iPhone/local-file previews block localStorage.
+  function safeGet(key, fallback = null) {
+    try {
+      const value = window.localStorage.getItem(key);
+      return value === null ? fallback : value;
+    } catch (e) {
+      return fallback;
+    }
+  }
+
+  function safeSet(key, value) {
+    try {
+      window.localStorage.setItem(key, String(value));
+    } catch (e) {
+      // Counter still works in memory even when storage is unavailable.
+    }
+  }
+
+  function finalAlert(soundEnabled) {
+    if (navigator.vibrate) navigator.vibrate([120, 70, 180]);
+    if (!soundEnabled) return;
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(880, ctx.currentTime);
+      gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.22, ctx.currentTime + 0.015);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.35);
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.start(); osc.stop(ctx.currentTime + 0.37);
+      setTimeout(() => ctx.close(), 500);
+    } catch (e) {}
+  }
+
+  document.querySelectorAll('.dhikr-card').forEach(card => {
+    const goal = Number(card.dataset.goal);
+    const key = card.dataset.key;
+    const countEl = card.querySelector('.count');
+    const button = card.querySelector('.counter-btn');
+    const reset = card.querySelector('.reset-btn');
+    const soundBtn = card.querySelector('.sound-btn');
+    let count = Math.min(Number(safeGet(key, 0) || 0), goal);
+    let soundEnabled = safeGet(key + '-sound', 'on') !== 'off';
+
+    function render() {
+      countEl.textContent = toArabic(count);
+      const done = count >= goal;
+      card.classList.toggle('done', done);
+      button.classList.toggle('completed', done);
+      button.setAttribute('aria-label', done ? `اكتمل العداد ${goal} من ${goal}` : `العداد ${count} من ${goal}`);
+      soundBtn.textContent = soundEnabled ? '🔊 التنبيه مفعّل' : '🔇 التنبيه متوقف';
+      soundBtn.setAttribute('aria-pressed', soundEnabled ? 'false' : 'true');
+    }
+
+    function incrementCounter() {
+      if (count >= goal) return;
+      count++;
+      safeSet(key, count);
+      if (navigator.vibrate && count < goal) navigator.vibrate(18);
+      if (count === goal) finalAlert(soundEnabled);
+      render();
+    }
+
+    button.addEventListener('click', incrementCounter);
+
+    reset.addEventListener('click', () => {
+      if (count === 0 || confirm('هل تريد تصفير هذا العداد والبدء من جديد؟')) {
+        count = 0;
+        safeSet(key, 0);
+        render();
+      }
+    });
+
+    soundBtn.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      safeSet(key + '-sound', soundEnabled ? 'on' : 'off');
+      render();
+    });
+
+    render();
+  });
+})();
+</script>
+
+<script>
+(function(){
+function ar(n){return String(n).replace(/\d/g,function(d){return '٠١٢٣٤٥٦٧٨٩'[Number(d)]})}
+function get(k){try{return Number(localStorage.getItem(k)||0)}catch(e){return 0}}
+function set(k,v){try{localStorage.setItem(k,String(v))}catch(e){}}
+function ding(){
+ if(navigator.vibrate){try{navigator.vibrate([120,70,180])}catch(e){}}
+ try{
+  var A=window.AudioContext||window.webkitAudioContext;if(!A)return;
+  var x=new A(),o=x.createOscillator(),g=x.createGain();
+  o.frequency.value=880;g.gain.setValueAtTime(.0001,x.currentTime);
+  g.gain.exponentialRampToValueAtTime(.18,x.currentTime+.01);
+  g.gain.exponentialRampToValueAtTime(.0001,x.currentTime+.28);
+  o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+.30);
+ }catch(e){}
+}
+var boxes=document.querySelectorAll('.raheem-counter');
+for(var i=0;i<boxes.length;i++){
+ (function(box){
+  var goal=Number(box.getAttribute('data-goal')),key=box.getAttribute('data-key');
+  var n=Math.min(get(key),goal),val=box.querySelector('.rv'),btn=box.querySelector('.raheem-count'),reset=box.querySelector('.raheem-reset');
+  function draw(){val.textContent=ar(n);box.classList.toggle('done',n>=goal)}
+  btn.onclick=function(e){e.preventDefault();if(n>=goal)return;n++;set(key,n);draw();if(n===goal)ding()};
+  reset.onclick=function(e){e.preventDefault();if(n===0||confirm('هل تريد تصفير العداد؟')){n=0;set(key,0);draw()}};
+  draw();
+ })(boxes[i]);
+}
+})();
+</script>
+
+</body>
+</html>
