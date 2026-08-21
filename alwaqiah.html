@@ -7,6 +7,7 @@
 <meta name="apple-mobile-web-app-title" content="سورة الواقعة">
 <meta name="theme-color" content="#0f5132">
 <title>سورة الواقعة</title>
+<meta name="description" content="سورة الواقعة مع التسبيح والعدادات.">
 <style>
 * { box-sizing: border-box; }
 body {
@@ -88,6 +89,22 @@ main { width: min(760px, calc(100% - 22px)); margin: 16px auto; }
   .verses { font-size: 27px; line-height: 2.05; padding: 15px; }
   .counter-btn { min-height: 88px; font-size: 32px; }
 }
+
+.gc-stats-box{
+  margin:12px auto 16px;
+  padding:10px 14px;
+  max-width:360px;
+  text-align:center;
+  background:#fffdf7;
+  border:1px solid #d8c79c;
+  border-radius:12px;
+  color:#506158;
+  font-size:14px;
+  line-height:1.6;
+}
+.gc-stats-box strong{color:#0f5132}
+.gc-count-wrap{display:inline-block;vertical-align:middle;margin-right:5px}
+
 </style>
 </head>
 <body>
@@ -97,7 +114,13 @@ main { width: min(760px, calc(100% - 22px)); margin: 16px auto; }
 </header>
 
 <main>
-  <a class="back-link" href="./">← سورة يس</a>
+
+<div class="gc-stats-box" aria-label="إحصائيات الصفحة">
+  👁️ <strong>زيارات هذه الصفحة:</strong>
+  <span id="gc-visitor-count" class="gc-count-wrap">جارٍ التحميل…</span>
+</div>
+
+  <a class="back-link" href="index.html">← الصفحة الرئيسية</a>
 
   <section class="instructions">
     <h2>🌿 طريقة القراءة</h2>
@@ -273,5 +296,35 @@ main { width: min(760px, calc(100% - 22px)); margin: 16px auto; }
   });
 })();
 </script>
+
+<script data-goatcounter="https://mubeenway.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  var tries = 0;
+  var timer = setInterval(function(){
+    tries++;
+    if(window.goatcounter && window.goatcounter.visit_count){
+      clearInterval(timer);
+      var target = document.getElementById('gc-visitor-count');
+      if(target){
+        target.textContent = '';
+        window.goatcounter.visit_count({
+          append: '#gc-visitor-count',
+          type: 'html',
+          no_branding: true,
+          attr: {width:'110', height:'48'},
+          style: 'div{border:0!important;background:transparent!important;color:#0f5132!important;width:auto!important;height:auto!important;padding:0!important;margin:0!important;font:700 15px -apple-system,BlinkMacSystemFont,"Geeza Pro",Arial,sans-serif!important}#gcvc-for{display:none!important}#gcvc-views{font-weight:800!important;font-size:16px!important}'
+        });
+      }
+    } else if(tries > 80){
+      clearInterval(timer);
+      var el = document.getElementById('gc-visitor-count');
+      if(el) el.textContent = '—';
+    }
+  },100);
+})();
+</script>
+
 </body>
 </html>

@@ -7,6 +7,7 @@
 <meta name="apple-mobile-web-app-title" content="سورة يس">
 <meta name="theme-color" content="#0f5132">
 <title>سورة يس – ختمة يا مفرّج الهم</title>
+<meta name="description" content="سورة يس – ختمة يا مفرّج الهم مع الأدعية والعدادات.">
 <style>
 * { box-sizing: border-box; }
 body {
@@ -294,6 +295,23 @@ body.dark .insert-box,body.dark .method-dua,body.dark .insert-dua{
 body.dark .dua-image-section{background:#17231b;border-color:#34463a}
 body.dark .dua-image-section h2{color:#8ed9aa}
 
+
+.gc-stats-box{
+  margin:12px auto 16px;
+  padding:10px 14px;
+  max-width:360px;
+  text-align:center;
+  background:#fffdf7;
+  border:1px solid #d8c79c;
+  border-radius:12px;
+  color:#506158;
+  font-size:14px;
+  line-height:1.6;
+}
+.gc-stats-box strong{color:#0f5132}
+.gc-count-wrap{display:inline-block;vertical-align:middle;margin-right:5px}
+
+.back-link{display:inline-block;margin-bottom:12px;color:#0f5132;text-decoration:none;font-weight:700}
 </style>
 </head>
 <body>
@@ -303,7 +321,13 @@ body.dark .dua-image-section h2{color:#8ed9aa}
 </header>
 
 <main>
-  <a class="home-back" href="index.html" aria-label="الرجوع إلى الصفحة الرئيسية">← الصفحة الرئيسية</a>
+
+<div class="gc-stats-box" aria-label="إحصائيات الصفحة">
+  👁️ <strong>زيارات هذه الصفحة:</strong>
+  <span id="gc-visitor-count" class="gc-count-wrap">جارٍ التحميل…</span>
+</div>
+
+  <a class="back-link" href="index.html">← الصفحة الرئيسية</a>
 
   <section class="instructions">
     <h2>🌿 ختمة سورة يس – «يا مفرّج الهم»</h2>
@@ -590,6 +614,36 @@ body.dark .dua-image-section h2{color:#8ed9aa}
 })();
 </script>
 
+
+
+<script data-goatcounter="https://mubeenway.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  var tries = 0;
+  var timer = setInterval(function(){
+    tries++;
+    if(window.goatcounter && window.goatcounter.visit_count){
+      clearInterval(timer);
+      var target = document.getElementById('gc-visitor-count');
+      if(target){
+        target.textContent = '';
+        window.goatcounter.visit_count({
+          append: '#gc-visitor-count',
+          type: 'html',
+          no_branding: true,
+          attr: {width:'110', height:'48'},
+          style: 'div{border:0!important;background:transparent!important;color:#0f5132!important;width:auto!important;height:auto!important;padding:0!important;margin:0!important;font:700 15px -apple-system,BlinkMacSystemFont,"Geeza Pro",Arial,sans-serif!important}#gcvc-for{display:none!important}#gcvc-views{font-weight:800!important;font-size:16px!important}'
+        });
+      }
+    } else if(tries > 80){
+      clearInterval(timer);
+      var el = document.getElementById('gc-visitor-count');
+      if(el) el.textContent = '—';
+    }
+  },100);
+})();
+</script>
 
 </body>
 </html>

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0f5132">
 <title>مُبين | القرآن والذكر</title>
+<meta name="description" content="مُبين – موقع للقرآن والذكر يضم طرق قراءة متعددة لسور يس والواقعة وسور أخرى.">
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#f7f3e8;color:#17251d;font-family:-apple-system,BlinkMacSystemFont,"Geeza Pro","Traditional Arabic",Arial,sans-serif;padding-bottom:35px}
@@ -24,11 +25,33 @@ main{width:min(760px,calc(100% - 24px));margin:22px auto 40px}
 .footer{margin-top:22px}.dua{color:#0f5132;font-size:20px;font-weight:700;border-top:1px solid #ddd3bc;padding-top:12px;margin-top:12px}
 .signature{font-size:13px;color:#657068;margin-top:12px}
 @media(max-width:520px){.grid{grid-template-columns:1fr}}
+
+.gc-stats-box{
+  margin:12px auto 16px;
+  padding:10px 14px;
+  max-width:360px;
+  text-align:center;
+  background:#fffdf7;
+  border:1px solid #d8c79c;
+  border-radius:12px;
+  color:#506158;
+  font-size:14px;
+  line-height:1.6;
+}
+.gc-stats-box strong{color:#0f5132}
+.gc-count-wrap{display:inline-block;vertical-align:middle;margin-right:5px}
+
 </style>
 </head>
 <body>
 <header><h1>مُبين</h1><div class="sub">القرآن والذكر</div></header>
 <main>
+
+<div class="gc-stats-box" aria-label="إحصائيات الصفحة">
+  👁️ <strong>زيارات هذه الصفحة:</strong>
+  <span id="gc-visitor-count" class="gc-count-wrap">جارٍ التحميل…</span>
+</div>
+
 <section class="box">
 <h2>📖 اختر السورة وطريقة القراءة</h2>
 <p>اختر الطريقة التي تريدها، وسيتم إضافة سور وطرق أخرى بإذن الله.</p>
@@ -95,5 +118,35 @@ main{width:min(760px,calc(100% - 24px));margin:22px auto 40px}
 <div class="signature">إعداد ونشر هذا العمل ابتغاء وجه الله تعالى<br>Samy ElFeel</div>
 </section>
 </main>
+
+<script data-goatcounter="https://mubeenway.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  var tries = 0;
+  var timer = setInterval(function(){
+    tries++;
+    if(window.goatcounter && window.goatcounter.visit_count){
+      clearInterval(timer);
+      var target = document.getElementById('gc-visitor-count');
+      if(target){
+        target.textContent = '';
+        window.goatcounter.visit_count({
+          append: '#gc-visitor-count',
+          type: 'html',
+          no_branding: true,
+          attr: {width:'110', height:'48'},
+          style: 'div{border:0!important;background:transparent!important;color:#0f5132!important;width:auto!important;height:auto!important;padding:0!important;margin:0!important;font:700 15px -apple-system,BlinkMacSystemFont,"Geeza Pro",Arial,sans-serif!important}#gcvc-for{display:none!important}#gcvc-views{font-weight:800!important;font-size:16px!important}'
+        });
+      }
+    } else if(tries > 80){
+      clearInterval(timer);
+      var el = document.getElementById('gc-visitor-count');
+      if(el) el.textContent = '—';
+    }
+  },100);
+})();
+</script>
+
 </body>
 </html>
